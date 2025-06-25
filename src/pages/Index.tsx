@@ -21,83 +21,51 @@ const projectsByCategory = {
   Website: [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Easybank",
       description:
-        "Modern e-commerce solution with React and Next.js, featuring real-time inventory management and payment integration.",
-      image: "/placeholder.svg",
-      tags: ["React", "Next.js", "TypeScript"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Easybank is a modern, responsive landing page for a digital banking solution." + 
+        " The site highlights key features such as online banking, simple budgeting," + 
+        " fast onboarding, and open API integration. It uses clean layouts, custom styling," + 
+        " and engaging sections like a hero banner, feature grid, and latest articles.",
+      image: "/images/website/easybank-preview.jpg",
+      tags: ["HTML", "SCSS", "Responsive Design"],
+      liveUrl: "https://jlpasto.github.io/easybank/",
+      githubUrl: "https://github.com/jlpasto/easybank/tree/gh-pages",
     },
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "Fylo",
       description:
-        "Clean and responsive portfolio website showcasing creative projects with smooth animations.",
-      image: "/placeholder.svg",
-      tags: ["React", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Fylo is a modern, responsive landing page project for a cloud storage service." +
+        " The site features a clean layout with sections showcasing key features like " +
+        " secure file storage, real-time collaboration, and universal access.",
+      image: "/images/website/fylo-preview.jpg",
+      tags: ["HTML", "SCSS", "Responsive Design"],
+      liveUrl: "https://jlpasto.github.io/fylo/",
+      githubUrl: "https://github.com/jlpasto/fylo/tree/gh-pages",
     },
     {
       id: 3,
-      title: "SaaS Dashboard",
+      title: "Manage",
       description:
-        "Comprehensive SaaS application dashboard with user management and analytics.",
-      image: "/placeholder.svg",
-      tags: ["React", "TypeScript", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Manage is a modern landing page for a team productivity platform,"+
+        " designed to help software teams efficiently plan daily tasks, track progress, and collaborate seamlessly.",
+      image: "/images/website/manage-preview.jpg",
+      tags: ["HTML", "SCSS", "Javascript"],
+      liveUrl: "https://jlpasto.github.io/manage/",
+      githubUrl: "https://github.com/jlpasto/manage/tree/gh-pages",
     },
     {
       id: 4,
-      title: "Restaurant Website",
+      title: "Sunnyside",
       description:
-        "Modern restaurant website with online ordering system and table reservations.",
-      image: "/placeholder.svg",
-      tags: ["Vue.js", "Nuxt", "Payment Gateway"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 5,
-      title: "Real Estate Platform",
-      description:
-        "Property listing platform with advanced search filters and virtual tours.",
-      image: "/placeholder.svg",
-      tags: ["React", "Node.js", "MongoDB"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 6,
-      title: "Learning Management System",
-      description:
-        "Educational platform with course management and progress tracking.",
-      image: "/placeholder.svg",
-      tags: ["Next.js", "PostgreSQL", "Video Streaming"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 7,
-      title: "Healthcare Portal",
-      description:
-        "Patient management system with appointment scheduling and medical records.",
-      image: "/placeholder.svg",
-      tags: ["React", "FHIR", "Security"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 8,
-      title: "Corporate Website",
-      description:
-        "Professional corporate website with CMS integration and SEO optimization.",
-      image: "/placeholder.svg",
-      tags: ["Next.js", "Sanity CMS", "SEO"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Sunnyside is a modern, responsive landing page for a creative agency,"+
+        " built with an emphasis on clean design and user experience." +
+        " The page features a bold hero section, engaging visuals, service highlights, and client testimonials.",
+      image: "/images/website/sunnyside-preview.jpg",
+      tags: ["HTML", "SCSS", "Javascript"],
+      liveUrl: "https://jlpasto.github.io/sunnyside/",
+      githubUrl: "https://github.com/jlpasto/sunnyside/tree/gh-pages",
     },
   ],
   "Web Scraping": [
@@ -447,19 +415,25 @@ const Index = () => {
         {/* Sidebar */}
         <aside className="fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
           <div className="p-8">
-            <div className="text-center mb-6">
+            <div className="text-center mb-4">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-                <User className="w-16 h-16 text-gray-400" />
+                {/* <User className="w-16 h-16 text-gray-400" /> */}
+                <img
+                  src="/images/profile-pic.jpg" // Update this path
+                  alt="Jhon Loyd Pastorin"
+                  className="w-full h-full object-cover rounded-full"
+                  draggable="false"
+                />
               </div>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                Alex Johnson
+                Jhon Loyd Pastorin
               </h1>
               <p className="text-gray-600 text-sm">
-                Creative Developer & Designer
+                Creative Developer & Automation Specialist
               </p>
             </div>
 
-            <div className="mb-6 pb-4 border-b border-gray-200">
+            <div className="mb-4 pb-4 border-b border-gray-200">
               <button
                 onClick={() => setIsContactPanelOpen(true)}
                 className="w-full px-4 py-3 bg-gray-900 text-white rounded-xl hover:scale-105 transition-transform duration-300 font-medium text-sm"
@@ -540,7 +514,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {currentProjects.map((project, index) => (
                 <Card
                   key={project.id}
