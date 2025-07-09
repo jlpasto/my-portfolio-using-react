@@ -21,6 +21,21 @@ const projectsByCategory = {
   Website: [
     {
       id: 1,
+      title: "Omnichannel Communications App",
+      description:
+        "Omnichannel Communications App is a Node.js-based application that seamlessly" +
+        " integrates multiple communication APIs into a single backend platform." + 
+        " Designed for simplicity and versatility, it enables unified messaging and" +
+        " interaction management across various channels (Email, Chat, Voice Call, SMS)." +
+        " The project is built primarily with HTML and JavaScript, offering a streamlined" +
+        " solution for efficient, centralized communication.",
+      image: "/images/website/omnichannel-preview.png",
+      tags: ["Node.js", "API Integration", "Javascript"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/jlpasto/omnichannel-communication-app",
+    },
+    {
+      id: 2,
       title: "Easybank",
       description:
         "Easybank is a modern, responsive landing page for a digital banking solution." + 
@@ -33,7 +48,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/easybank/tree/gh-pages",
     },
     {
-      id: 2,
+      id: 3,
       title: "Fylo",
       description:
         "Fylo is a modern, responsive landing page project for a cloud storage service." +
@@ -45,7 +60,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/fylo/tree/gh-pages",
     },
     {
-      id: 3,
+      id: 4,
       title: "Manage",
       description:
         "Manage is a modern landing page for a team productivity platform,"+
@@ -56,7 +71,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/manage/tree/gh-pages",
     },
     {
-      id: 4,
+      id: 5,
       title: "Sunnyside",
       description:
         "Sunnyside is a modern, responsive landing page for a creative agency,"+
@@ -67,6 +82,7 @@ const projectsByCategory = {
       liveUrl: "https://jlpasto.github.io/sunnyside/",
       githubUrl: "https://github.com/jlpasto/sunnyside/tree/gh-pages",
     },
+
   ],
   "Web Scraping": [
     {
@@ -153,33 +169,47 @@ const projectsByCategory = {
   "Python Automation": [
     {
       id: 17,
-      title: "Report Generator",
+      title: "Invoice Generator",
       description:
-        "Automated report generation system with PDF creation and charts.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Pandas", "Matplotlib"],
+        "Automated invoice generation system with PDF creation.",
+      image: "/images/python/pdf-generator-preview.png",
+      tags: ["Python", "Reportlab", "PDF"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/jlpasto/product-quotation-using-python",
     },
     {
       id: 18,
-      title: "File Organization Tool",
+      title: "PDF to JSON & Notion Uploader",
       description:
-        "Smart file organizer that automatically sorts and categorizes files.",
-      image: "/placeholder.svg",
-      tags: ["Python", "File Management", "AI"],
+        "A python script that allows downloading of PDFs in notion database and" +
+        " extracting the content of the PDF and convert it to json file. The json" +
+        " file will be then uploaded in Google Drive using Google Drive API." +
+        " The Notion database item will be updated with the link of the shareable link .",
+      image: "/images/python/notion-automation-preview.png",
+      tags: ["Python", "Notion API", "JSON"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/jlpasto/notion-pdf-to-json",
     },
     {
       id: 19,
-      title: "Email Campaign Manager",
+      title: "Automated Timesheet Integration",
       description:
-        "Automated email marketing system with personalization and analytics.",
-      image: "/placeholder.svg",
-      tags: ["Python", "SMTP", "Templates"],
+      "Automated the process of synchronizing employee timesheet data between " +
+      "Compliance Genie and Sage HR. It performs the following tasks:\n\n" +
+      "- Retrieves raw check-in/check-out data from a CSV-based API (Compliance Genie).\n" +
+      "- Filters, formats, and processes clock-in records, ensuring they are clean and aligned " +
+      "with Sage HR's requirements.\n" + 
+      "- Applies intelligent business rules (e.g., auto-adding breaks for long shifts, rounding " + 
+      "time to nearest 5 mins).\n" +
+      "- Matches employees by name across systems and computes multiple shift entries per day.\n" +
+      "- Posts timesheet entries to Sage HR via its API using concurrent threading for performance optimization.\n" +
+      "- Stores and retrieves the last processed date to avoid duplicate entries on subsequent runs.\n\n" +
+      "This solution minimizes manual HR data entry, enhances accuracy, and ensures timesheet " +
+      "compliance across platforms.",
+      image: "/images/python/timesheet-integration-preview.png",
+      tags: ["Python", "Sage HR API", "Multi-threading"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/jlpasto/automated-timesheet-integration-using-SAGE-HR",
     },
     {
       id: 20,
@@ -393,6 +423,13 @@ const projectsByCategory = {
   ],
 };
 
+const categoryCounts = Object.fromEntries(
+  Object.entries(projectsByCategory).map(([category, projects]) => [
+    category,
+    projects.length,
+  ])
+);
+
 const Index = () => {
   const [activeCategory, setActiveCategory] =
     useState<keyof typeof themes>("Website");
@@ -483,7 +520,7 @@ const Index = () => {
                       <div
                         className={`text-xs mt-1 ${isActive ? "text-white/80" : "text-gray-500"}`}
                       >
-                        8 projects
+                        {categoryCounts[category]} projects
                       </div>
                     </button>
                   );

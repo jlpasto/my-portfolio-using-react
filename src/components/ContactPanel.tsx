@@ -103,14 +103,14 @@ export default function ContactPanel({ isOpen, onClose }: ContactPanelProps) {
                 className="flex items-center text-xl text-foreground hover:text-primary transition-colors duration-200"
               >
                 <Mail className="w-5 h-5 mr-3" />
-                hello@portfolio.com
+                jhonloydpastorin.03@gmail.com
               </a>
               <a
                 href="tel:+1234567890"
                 className="flex items-center text-xl text-foreground hover:text-primary transition-colors duration-200"
               >
                 <Phone className="w-5 h-5 mr-3" />
-                (+1) 234 567 890
+                (+63) 995 507 2413
               </a>
             </div>
           </div>
