@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import ContactPanel from "@/components/ContactPanel";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Link } from "react-router-dom";
+
 
 // Color themes for categories
 const themes = {
@@ -22,6 +24,7 @@ const projectsByCategory = {
     {
       id: 1,
       title: "Omnichannel Communications App",
+      slug: "Omnichannel-Communications-App",
       description:
         "Omnichannel Communications App is a Node.js-based application that seamlessly" +
         " integrates multiple communication APIs into a single backend platform." + 
@@ -37,6 +40,7 @@ const projectsByCategory = {
     {
       id: 2,
       title: "Easybank",
+      slug: "Easybank",
       description:
         "Easybank is a modern, responsive landing page for a digital banking solution." + 
         " The site highlights key features such as online banking, simple budgeting," + 
@@ -50,6 +54,7 @@ const projectsByCategory = {
     {
       id: 3,
       title: "Fylo",
+      slug: "Fylo",
       description:
         "Fylo is a modern, responsive landing page project for a cloud storage service." +
         " The site features a clean layout with sections showcasing key features like " +
@@ -62,6 +67,7 @@ const projectsByCategory = {
     {
       id: 4,
       title: "Manage",
+      slug: "Manage",
       description:
         "Manage is a modern landing page for a team productivity platform,"+
         " designed to help software teams efficiently plan daily tasks, track progress, and collaborate seamlessly.",
@@ -73,6 +79,7 @@ const projectsByCategory = {
     {
       id: 5,
       title: "Sunnyside",
+      slug: "Sunnyside",
       description:
         "Sunnyside is a modern, responsive landing page for a creative agency,"+
         " built with an emphasis on clean design and user experience." +
@@ -265,6 +272,7 @@ const projectsByCategory = {
     {
       id: 25,
       title: "CRM Integration Workflow",
+      slug: "CRM-Integration-Workflow",
       description:
         "Seamless integration between multiple CRM systems with data sync.",
       image: "/placeholder.svg",
@@ -275,8 +283,9 @@ const projectsByCategory = {
     {
       id: 26,
       title: "Social Media Automation",
+      slug: "Social-Media-Automation",
       description:
-        "Multi-platform social media posting with content scheduling.",
+        "Multi-platform social media posting with content generation using OpenAI GPT-4o, Perplexity AI, and GPT-4 Vision.",
       image: "/placeholder.svg",
       tags: ["Make.com", "Social Media APIs", "Scheduling"],
       liveUrl: "#",
@@ -553,76 +562,80 @@ const Index = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {currentProjects.map((project, index) => (
-                <Card
-                  key={project.id}
-                  className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-white animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="aspect-video relative overflow-hidden bg-gray-100">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                      style={{ backgroundColor: theme.primary }}
-                    />
-                  </div>
-                  <CardContent className="p-4">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {project.tags.slice(0, 3).map((tag) => (
-                        <Badge
-                          key={tag}
-                          className="text-xs border-0 text-white"
-                          style={{ backgroundColor: theme.primary + "80" }}
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2 text-sm">
-                      {project.description}
-                    </p>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 text-xs"
-                        asChild
-                      >
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          View
-                        </a>
-                      </Button>
-                      {project.githubUrl && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 text-xs"
-                          asChild
-                        >
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                
+                  <Card
+                    key={project.id}
+                    className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-white animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <Link to={`/work/${project.slug}`} >
+                      <div className="aspect-video relative overflow-hidden bg-gray-100">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div
+                          className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                          style={{ backgroundColor: theme.primary }}
+                        />
+                      </div>
+                    </Link>
+                    <CardContent className="p-4">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tags.slice(0, 3).map((tag) => (
+                          <Badge
+                            key={tag}
+                            className="text-xs border-0 text-white"
+                            style={{ backgroundColor: theme.primary + "80" }}
                           >
-                            <Github className="w-3 h-3 mr-1" />
-                            Code
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2 text-sm">
+                        {project.description}
+                      </p>
+                      <div className="flex gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex-1 text-xs"
+                            asChild
+                          >
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="w-3 h-3 mr-1" />
+                              View
+                            </a>
+                          </Button>
+                        {project.githubUrl && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex-1 text-xs"
+                            asChild
+                          >
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github className="w-3 h-3 mr-1" />
+                              Code
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                
               ))}
             </div>
           </div>

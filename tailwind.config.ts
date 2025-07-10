@@ -125,5 +125,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),      // For animation utilities
+    require("@tailwindcss/typography")], // For prose (markdown formatting)
 } satisfies Config;
