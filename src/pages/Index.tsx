@@ -186,36 +186,24 @@ const projectsByCategory = {
     },
     {
       id: 18,
-      title: "PDF to JSON & Notion Uploader",
+      title: "PDF to JSON Converter",
+      slug: "PDF-to-JSON-and-Notion-Uploader",
       description:
-        "A python script that allows downloading of PDFs in notion database and" +
-        " extracting the content of the PDF and convert it to json file. The json" +
-        " file will be then uploaded in Google Drive using Google Drive API." +
-        " The Notion database item will be updated with the link of the shareable link .",
+        "Automate the extraction of data from PDF files exported from Notion and convert them into structured JSON format.",
       image: "/images/python/notion-automation-preview.png",
       tags: ["Python", "Notion API", "JSON"],
-      liveUrl: "#",
+      liveUrl: "/work/PDF-to-JSON-and-Notion-Uploader",
       githubUrl: "https://github.com/jlpasto/notion-pdf-to-json",
     },
     {
       id: 19,
       title: "Automated Timesheet Integration",
+      slug: "Automated-Timesheet-Integration",
       description:
-      "Automated the process of synchronizing employee timesheet data between " +
-      "Compliance Genie and Sage HR. It performs the following tasks:\n\n" +
-      "- Retrieves raw check-in/check-out data from a CSV-based API (Compliance Genie).\n" +
-      "- Filters, formats, and processes clock-in records, ensuring they are clean and aligned " +
-      "with Sage HR's requirements.\n" + 
-      "- Applies intelligent business rules (e.g., auto-adding breaks for long shifts, rounding " + 
-      "time to nearest 5 mins).\n" +
-      "- Matches employees by name across systems and computes multiple shift entries per day.\n" +
-      "- Posts timesheet entries to Sage HR via its API using concurrent threading for performance optimization.\n" +
-      "- Stores and retrieves the last processed date to avoid duplicate entries on subsequent runs.\n\n" +
-      "This solution minimizes manual HR data entry, enhances accuracy, and ensures timesheet " +
-      "compliance across platforms.",
+      "Automates the process of synchronizing employee timesheet data between Compliance Genie and Sage HR.",
       image: "/images/python/timesheet-integration-preview.png",
       tags: ["Python", "Sage HR API", "Multi-threading"],
-      liveUrl: "#",
+      liveUrl: "/work/Automated-Timesheet-Integration",
       githubUrl: "https://github.com/jlpasto/automated-timesheet-integration-using-SAGE-HR",
     },
     {
@@ -270,34 +258,35 @@ const projectsByCategory = {
   ],
   "Make.com Automation": [
     {
-      id: 25,
-      title: "CRM Integration Workflow",
-      slug: "CRM-Integration-Workflow",
-      description:
-        "Seamless integration between multiple CRM systems with data sync.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "CRM", "API Integration"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
-    {
       id: 26,
       title: "Social Media Automation",
       slug: "Social-Media-Automation",
       description:
         "Multi-platform social media posting with content generation using OpenAI GPT-4o, Perplexity AI, and GPT-4 Vision.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "Social Media APIs", "Scheduling"],
-      liveUrl: "#",
+      image: "/images/make/social-media-automation.png",
+      tags: ["Make.com", "Social Media APIs", "AI Modules"],
+      liveUrl: "/work/Social-Media-Automation",
       githubUrl: null,
     },
     {
       id: 27,
-      title: "E-commerce Order Processing",
+      title: "Notion - PDF To JSON Converter",
+      slug: "Notion-PDF-To-JSON-Converter",
       description:
-        "Automated order fulfillment workflow with inventory management.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "E-commerce", "Inventory"],
+        "Automated extraction of PDF content into structured JSON format and storage into Notion using iLovePDF, ComPDFKit, and Make.com  ",
+      image: "/images/make/notion-pdf-to-json.png",
+      tags: ["Make.com", "Notion", "OCR"],
+      liveUrl: "/work/Notion-PDF-To-JSON-Converter",
+      githubUrl: null,
+    },
+    {
+      id: 29,
+      title: "Art Feedback Automation",
+      slug: "Art-Feedback-Automation",
+      description:
+        "Automatically processes drawing feedback requests submitted via Tally forms, uses GPT-4o to generate personalized feedback, and sends it via email.",
+      image: "/images/make/art-feedback-automation.png",
+      tags: ["Make.com", "OpenAI", "Email Module"],
       liveUrl: "#",
       githubUrl: null,
     },
@@ -306,17 +295,7 @@ const projectsByCategory = {
       title: "Lead Generation Pipeline",
       description: "Automated lead qualification and nurturing system.",
       image: "/placeholder.svg",
-      tags: ["Make.com", "Lead Generation", "Email Marketing"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
-    {
-      id: 29,
-      title: "Document Processing Workflow",
-      description:
-        "Automated document processing with OCR and data extraction.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "OCR", "Document Management"],
+      tags: ["Make.com", "OpenAI", "Email Module"],
       liveUrl: "#",
       githubUrl: null,
     },
@@ -443,12 +422,18 @@ const Index = () => {
   const [activeCategory, setActiveCategory] =
     useState<keyof typeof themes>("Website");
   const [isContactPanelOpen, setIsContactPanelOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    // Only show loading screen the first time
+    return sessionStorage.getItem("hasLoaded") !== "true";
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => {
+      setIsLoading(false),
+      sessionStorage.setItem("hasLoaded", "true");
+    }, 2000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoading]);
 
   const categories = Object.keys(themes) as Array<keyof typeof themes>;
   const currentProjects = projectsByCategory[activeCategory];
@@ -562,13 +547,12 @@ const Index = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {currentProjects.map((project, index) => (
-                
                   <Card
                     key={project.id}
                     className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-white animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <Link to={`/work/${project.slug}`} >
+                    <a href={`/work/${project.slug}`} target="_blank" rel="noopener noreferrer">
                       <div className="aspect-video relative overflow-hidden bg-gray-100">
                         <img
                           src={project.image}
@@ -580,7 +564,7 @@ const Index = () => {
                           style={{ backgroundColor: theme.primary }}
                         />
                       </div>
-                    </Link>
+                    </a>
                     <CardContent className="p-4">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {project.tags.slice(0, 3).map((tag) => (
