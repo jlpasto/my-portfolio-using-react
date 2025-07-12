@@ -7,6 +7,7 @@ import { ArrowLeft, Mail, Phone, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -41,10 +42,20 @@ export default function ContactPanel({ isOpen, onClose }: ContactPanelProps) {
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // // Simulate API call
+      // await new Promise((resolve) => setTimeout(resolve, 1500));
+      const result = await emailjs.send(
+        'service_3tpub4e',        // from EmailJS dashboard
+        'template_rqe7skj',       // from EmailJS dashboard
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        'nZOA_WBngFEt81B5-' // from EmailJS dashboard
+      );
 
-      console.log("Form submitted:", data);
+      console.log("Email sent:", result.text);
       setSubmitStatus("success");
       reset();
 
@@ -54,6 +65,7 @@ export default function ContactPanel({ isOpen, onClose }: ContactPanelProps) {
         setSubmitStatus("idle");
       }, 2000);
     } catch (error) {
+      console.error("Email failed to send:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
