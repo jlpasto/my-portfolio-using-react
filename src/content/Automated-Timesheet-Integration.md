@@ -37,7 +37,7 @@ By fetching and posting attendance records programmatically, it ensures timeshee
 ## 📂 Folder Structure
 
 ```
-your-project/
+automated-timesheet-integration-using-SAGE-HR/
 │
 ├── main.py                 # Main integration script
 ├── .env                    # Contains sensitive API keys (not committed)
@@ -100,4 +100,4 @@ python main.py
 
 ## 📧 Contact
 
-For issues or feature requests, please contact [Jhon Loyd Pastorin] at [jhonloydpastorin.03@gmail.com].
+For issues or feature requests, please contact [Jhon Loyd Pastorin](mailto:jhonloydpastorin.03@gmail.com).

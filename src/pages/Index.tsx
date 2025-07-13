@@ -208,13 +208,14 @@ const projectsByCategory = {
     },
     {
       id: 20,
-      title: "Database Backup Automation",
+      title: "Pattern Design Generator",
+      slug: "Pattern-Design-Generator",
       description:
-        "Automated database backup system with cloud storage integration.",
+        "Automate the creation of visually compelling pattern designs by layering motifs with customizable colors.",
       image: "/placeholder.svg",
-      tags: ["Python", "PostgreSQL", "AWS S3"],
+      tags: ["Python", "Numpy", "Image Layering"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/jlpasto/pattern-design-generator-using-python",
     },
     {
       id: 21,
