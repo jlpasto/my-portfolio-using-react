@@ -39,6 +39,16 @@ const projectsByCategory = {
     },
     {
       id: 2,
+      title: "BreatheFit",
+      slug: "BreatheFit",
+      description: "BreatheFit is a sport-themed breathing coach with guided breathing exercises designed to reduce stress, improve focus, and enhance your overall well-being.",
+      image: `/images/website/breathefit-preview.png`,
+      tags: ["Node.js", "React", "TypeScript"],
+      liveUrl: "https://breathefit.netlify.app/",
+      githubUrl: "https://github.com/jlpasto/BreatheFit",
+    },
+    {
+      id: 3,
       title: "Easybank",
       slug: "Easybank",
       description:
@@ -52,7 +62,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/easybank/tree/gh-pages",
     },
     {
-      id: 3,
+      id: 4,
       title: "Fylo",
       slug: "Fylo",
       description:
@@ -65,7 +75,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/fylo/tree/gh-pages",
     },
     {
-      id: 4,
+      id: 5,
       title: "Manage",
       slug: "Manage",
       description:
@@ -77,7 +87,7 @@ const projectsByCategory = {
       githubUrl: "https://github.com/jlpasto/manage/tree/gh-pages",
     },
     {
-      id: 5,
+      id: 6,
       title: "Sunnyside",
       slug: "Sunnyside",
       description:
