@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 // Color themes for categories
 const themes = {
   Website: { primary: "#6366f1", bg: "#f0f1ff" },
-  "Web Scraping": { primary: "#10b981", bg: "#f0fdfa" },
+  //"Web Scraping": { primary: "#10b981", bg: "#f0fdfa" },
   "Python Automation": { primary: "#f59e0b", bg: "#fffbeb" },
   "Make.com Automation": { primary: "#ef4444", bg: "#fef2f2" }
   // "Google Apps Script": { primary: "#8b5cf6", bg: "#faf5ff" },
@@ -177,11 +177,12 @@ const projectsByCategory = {
     {
       id: 17,
       title: "Invoice Generator",
+      slug: "Invoice-Generator",
       description:
         "Automated invoice generation system with PDF creation.",
       image: "/images/python/pdf-generator-preview.png",
       tags: ["Python", "Reportlab", "PDF"],
-      liveUrl: "#",
+      liveUrl: "work/Invoice-Generator",
       githubUrl: "https://github.com/jlpasto/product-quotation-using-python",
     },
     {
@@ -212,50 +213,12 @@ const projectsByCategory = {
       slug: "Pattern-Design-Generator",
       description:
         "Automate the creation of visually compelling pattern designs by layering motifs with customizable colors.",
-      image: "/placeholder.svg",
+      image: "/images/python/pattern-design-generator-preview.png",
       tags: ["Python", "Numpy", "Image Layering"],
-      liveUrl: "#",
+      liveUrl: "/work/Pattern-Design-Generator",  
       githubUrl: "https://github.com/jlpasto/pattern-design-generator-using-python",
-    },
-    {
-      id: 21,
-      title: "Social Media Scheduler",
-      description:
-        "Content scheduling automation for multiple social media platforms.",
-      image: "/placeholder.svg",
-      tags: ["Python", "APIs", "Image Processing"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 22,
-      title: "Invoice Processing System",
-      description: "OCR-powered invoice automation with data extraction.",
-      image: "/placeholder.svg",
-      tags: ["Python", "OCR", "PDF Processing"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 23,
-      title: "Website Monitor",
-      description:
-        "Automated website monitoring tool with uptime and performance alerts.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Monitoring", "Alerts"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 24,
-      title: "Data Migration Tool",
-      description:
-        "Automated data migration system between different database systems.",
-      image: "/placeholder.svg",
-      tags: ["Python", "ETL", "Data Transformation"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+    }
+
   ],
   "Make.com Automation": [
     {
@@ -288,45 +251,9 @@ const projectsByCategory = {
         "Automatically processes drawing feedback requests submitted via Tally forms, uses GPT-4o to generate personalized feedback, and sends it via email.",
       image: "/images/make/art-feedback-automation.png",
       tags: ["Make.com", "OpenAI", "Email Module"],
-      liveUrl: "#",
+      liveUrl: "/work/Art-Feedback-Automation",
       githubUrl: null,
-    },
-    {
-      id: 28,
-      title: "Lead Generation Pipeline",
-      description: "Automated lead qualification and nurturing system.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "OpenAI", "Email Module"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
-    {
-      id: 30,
-      title: "Customer Support Automation",
-      description: "Automated ticket routing and response generation system.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "Support Systems", "AI Responses"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
-    {
-      id: 31,
-      title: "Financial Reporting Automation",
-      description: "Automated financial data collection and report generation.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "Financial APIs", "Reporting"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
-    {
-      id: 32,
-      title: "Event Management Workflow",
-      description: "Complete event automation from registration to follow-up.",
-      image: "/placeholder.svg",
-      tags: ["Make.com", "Event Management", "Payments"],
-      liveUrl: "#",
-      githubUrl: null,
-    },
+    }
   ],
   "Google Apps Script": [
     {
