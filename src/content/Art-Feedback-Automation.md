@@ -4,7 +4,7 @@
 
 ## 🔁 Scenario Overview
 
-![Make.com Scenario Screenshot](/public/images/make/art-feedback-automation.png)
+![Make.com Scenario Screenshot](/images/make/art-feedback-automation.png)
 
 ## 🧠 Problem Statement  
 Manual review and feedback for art submissions can be slow, inconsistent, and labor-intensive. The client wanted to:
