@@ -3,7 +3,7 @@
 
 ## 🔁 Scenario Overview
 
-![Make.com Scenario Screenshot](/public/images/make/social-media-automation.png)
+![Make.com Scenario Screenshot](/images/make/social-media-automation.png)
 
 ## 🧠 Problem Statement
 Managing and creating daily social media content across platforms is time-consuming and repetitive. Marketing teams often juggle research, content writing, and formatting, leading to bottlenecks and inconsistent posting. The client wanted a solution that:

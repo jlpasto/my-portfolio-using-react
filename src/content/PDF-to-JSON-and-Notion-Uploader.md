@@ -6,7 +6,7 @@ This project provides a script/tool to automate the extraction of data from PDF 
 
 By transforming Notion PDF exports into machine-readable JSON, this tool enables easier integration, data analysis, and further processing of Notion content.
 
-![Preview Screenshot](/public/images/python/notion-automation-preview.png)
+![Preview Screenshot](/images/python/notion-automation-preview.png)
 
 ---
 

@@ -32,7 +32,7 @@ const projectsByCategory = {
         " interaction management across various channels (Email, Chat, Voice Call, SMS)." +
         " The project is built primarily with HTML and JavaScript, offering a streamlined" +
         " solution for efficient, centralized communication.",
-      image: `${import.meta.env.BASE_URL}images/website/omnichannel-preview.png`,
+      image: `/images/website/omnichannel-preview.png`,
       tags: ["Node.js", "API Integration", "Javascript"],
       liveUrl: "#",
       githubUrl: "https://github.com/jlpasto/omnichannel-communication-app",
@@ -46,7 +46,7 @@ const projectsByCategory = {
         " The site highlights key features such as online banking, simple budgeting," + 
         " fast onboarding, and open API integration. It uses clean layouts, custom styling," + 
         " and engaging sections like a hero banner, feature grid, and latest articles.",
-      image: `${import.meta.env.BASE_URL}images/website/easybank-preview.jpg`,
+      image: `/images/website/easybank-preview.jpg`,
       tags: ["HTML", "SCSS", "Responsive Design"],
       liveUrl: "https://jlpasto.github.io/easybank/",
       githubUrl: "https://github.com/jlpasto/easybank/tree/gh-pages",
@@ -59,7 +59,7 @@ const projectsByCategory = {
         "Fylo is a modern, responsive landing page project for a cloud storage service." +
         " The site features a clean layout with sections showcasing key features like " +
         " secure file storage, real-time collaboration, and universal access.",
-      image: `${import.meta.env.BASE_URL}images/website/fylo-preview.jpg`,
+      image: `/images/website/fylo-preview.jpg`,
       tags: ["HTML", "SCSS", "Responsive Design"],
       liveUrl: "https://jlpasto.github.io/fylo/",
       githubUrl: "https://github.com/jlpasto/fylo/tree/gh-pages",
@@ -71,7 +71,7 @@ const projectsByCategory = {
       description:
         "Manage is a modern landing page for a team productivity platform,"+
         " designed to help software teams efficiently plan daily tasks, track progress, and collaborate seamlessly.",
-      image: `${import.meta.env.BASE_URL}images/website/manage-preview.jpg`,
+      image: `/images/website/manage-preview.jpg`,
       tags: ["HTML", "SCSS", "Javascript"],
       liveUrl: "https://jlpasto.github.io/manage/",
       githubUrl: "https://github.com/jlpasto/manage/tree/gh-pages",
@@ -84,7 +84,7 @@ const projectsByCategory = {
         "Sunnyside is a modern, responsive landing page for a creative agency,"+
         " built with an emphasis on clean design and user experience." +
         " The page features a bold hero section, engaging visuals, service highlights, and client testimonials.",
-      image: `${import.meta.env.BASE_URL}images/website/sunnyside-preview.jpg`,
+      image: `/images/website/sunnyside-preview.jpg`,
       tags: ["HTML", "SCSS", "Javascript"],
       liveUrl: "https://jlpasto.github.io/sunnyside/",
       githubUrl: "https://github.com/jlpasto/sunnyside/tree/gh-pages",
@@ -180,7 +180,7 @@ const projectsByCategory = {
       slug: "Invoice-Generator",
       description:
         "Automated invoice generation system with PDF creation.",
-      image: `${import.meta.env.BASE_URL}images/python/pdf-generator-preview.png`,
+      image: `/images/python/pdf-generator-preview.png`,
       tags: ["Python", "Reportlab", "PDF"],
       liveUrl: "work/Invoice-Generator",
       githubUrl: "https://github.com/jlpasto/product-quotation-using-python",
@@ -191,7 +191,7 @@ const projectsByCategory = {
       slug: "PDF-to-JSON-and-Notion-Uploader",
       description:
         "Automate the extraction of data from PDF files exported from Notion and convert them into structured JSON format.",
-      image: `${import.meta.env.BASE_URL}images/python/notion-automation-preview.png`,
+      image: `/images/python/notion-automation-preview.png`,
       tags: ["Python", "Notion API", "JSON"],
       liveUrl: "/work/PDF-to-JSON-and-Notion-Uploader",
       githubUrl: "https://github.com/jlpasto/notion-pdf-to-json",
@@ -202,7 +202,7 @@ const projectsByCategory = {
       slug: "Automated-Timesheet-Integration",
       description:
       "Automates the process of synchronizing employee timesheet data between Compliance Genie and Sage HR.",
-      image: `${import.meta.env.BASE_URL}images/python/timesheet-integration-preview.png`,
+      image: `/images/python/timesheet-integration-preview.png`,
       tags: ["Python", "Sage HR API", "Multi-threading"],
       liveUrl: "/work/Automated-Timesheet-Integration",
       githubUrl: "https://github.com/jlpasto/automated-timesheet-integration-using-SAGE-HR",
@@ -213,7 +213,7 @@ const projectsByCategory = {
       slug: "Pattern-Design-Generator",
       description:
         "Automate the creation of visually compelling pattern designs by layering motifs with customizable colors.",
-      image: `${import.meta.env.BASE_URL}images/python/pattern-design-generator-preview.png`,
+      image: `/images/python/pattern-design-generator-preview.png`,
       tags: ["Python", "Numpy", "Image Layering"],
       liveUrl: "/work/Pattern-Design-Generator",  
       githubUrl: "https://github.com/jlpasto/pattern-design-generator-using-python",
@@ -227,7 +227,7 @@ const projectsByCategory = {
       slug: "Social-Media-Automation",
       description:
         "Multi-platform social media posting with content generation using OpenAI GPT-4o, Perplexity AI, and GPT-4 Vision.",
-      image: `${import.meta.env.BASE_URL}images/make/social-media-automation.png`,
+      image: `/images/make/social-media-automation.png`,
       tags: ["Make.com", "Social Media APIs", "AI Modules"],
       liveUrl: "/work/Social-Media-Automation",
       githubUrl: null,
@@ -238,7 +238,7 @@ const projectsByCategory = {
       slug: "Notion-PDF-To-JSON-Converter",
       description:
         "Automated extraction of PDF content into structured JSON format and storage into Notion using iLovePDF, ComPDFKit, and Make.com",
-      image: `${import.meta.env.BASE_URL}images/make/notion-pdf-to-json.png`,
+      image: `/images/make/notion-pdf-to-json.png`,
       tags: ["Make.com", "Notion", "OCR"],
       liveUrl: "/work/Notion-PDF-To-JSON-Converter",
       githubUrl: null,
@@ -249,7 +249,7 @@ const projectsByCategory = {
       slug: "Art-Feedback-Automation",
       description:
         "Automatically processes drawing feedback requests submitted via Tally forms, uses GPT-4o to generate personalized feedback, and sends it via email.",
-      image: `${import.meta.env.BASE_URL}images/make/art-feedback-automation.png`,
+      image: `/images/make/art-feedback-automation.png`,
       tags: ["Make.com", "OpenAI", "Email Module"],
       liveUrl: "/work/Art-Feedback-Automation",
       githubUrl: null,
@@ -378,7 +378,7 @@ const Index = () => {
               <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
                 {/* <User className="w-16 h-16 text-gray-400" /> */}
                 <img
-                  src={`${import.meta.env.BASE_URL}images/profile-pic.jpg`} // Update this path
+                  src={`/images/profile-pic.jpg`} // Update this path
                   alt="Jhon Loyd Pastorin Profile Picture"
                   className="w-full h-full object-cover rounded-full"
                   draggable="false"

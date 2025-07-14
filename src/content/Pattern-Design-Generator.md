@@ -6,7 +6,7 @@ This Python-based application automates the creation of visually compelling patt
 
 Simply provide a base motif image, and the script will generate design layers by applying color transformations—making it an excellent tool for textile, wallpaper, and surface design prototyping.
 
-![Preview Screenshot](/public/images/python/pattern-design-generator-preview.png)
+![Preview Screenshot](/images/python/pattern-design-generator-preview.png)
 
 ---
 

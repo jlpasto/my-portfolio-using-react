@@ -4,7 +4,7 @@
 
 ## 🔁 Scenario Overview
 
-![Make.com Scenario Screenshot](/public/images/make/notion-pdf-to-json.png)
+![Make.com Scenario Screenshot](/images/make/notion-pdf-to-json.png)
 
 ## 🧠 Problem Statement  
 Manually extracting and copying content from PDF reports into Notion databases is inefficient, especially when dealing with recurring monthly reports. The client wanted a system that could:

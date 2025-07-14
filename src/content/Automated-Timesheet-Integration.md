@@ -6,7 +6,7 @@ This Python script automates the process of synchronizing employee timesheet dat
 
 By fetching and posting attendance records programmatically, it ensures timesheet consistency, accuracy, and eliminates repetitive manual data entry.
 
-![Scenario Screenshot](/public/images/python/timesheet-integration-preview.png)
+![Scenario Screenshot](/images/python/timesheet-integration-preview.png)
 
 ---
 
