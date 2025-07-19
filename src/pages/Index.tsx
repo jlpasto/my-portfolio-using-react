@@ -34,7 +34,7 @@ const projectsByCategory = {
         " solution for efficient, centralized communication.",
       image: `/images/website/omnichannel-preview.png`,
       tags: ["Node.js", "API Integration", "Javascript"],
-      liveUrl: "#",
+      liveUrl: "https://omnichannel-communication-app.vercel.app/",
       githubUrl: "https://github.com/jlpasto/omnichannel-communication-app",
     },
     {
@@ -227,6 +227,17 @@ const projectsByCategory = {
       tags: ["Python", "Numpy", "Image Layering"],
       liveUrl: "/work/Pattern-Design-Generator",  
       githubUrl: "https://github.com/jlpasto/pattern-design-generator-using-python",
+    },
+    {
+      id: 21,
+      title: "Auction Listings Scraper",
+      slug: "Auction-Listings-Scraper",
+      description:
+      "A robust Python script for scraping B-Stock auction listings using a proxy for secure and anonymous access.",
+      image: `/placeholder.svg`,
+      tags: ["Python", "Selenium", "BeautifulSoup"],
+      liveUrl: "/work/Auction-Listings-Scraper",  
+      githubUrl: "https://github.com/jlpasto/Bstock-Scraper.git",
     }
 
   ],
