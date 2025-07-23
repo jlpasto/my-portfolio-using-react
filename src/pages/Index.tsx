@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import ContactPanel from "@/components/ContactPanel";
 import LoadingScreen from "@/components/LoadingScreen";
+import { Menu } from "lucide-react";
 
 
 // Color themes for categories
@@ -269,6 +270,7 @@ const Index = () => {
     // Only show loading screen the first time
     return sessionStorage.getItem("hasLoaded") !== "true";
   });
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // State for shuffled 'All Works'
   const [shuffledAllWorks, setShuffledAllWorks] = useState(() => shuffleArray(projectsByCategory["All Works"]));
@@ -311,15 +313,110 @@ const Index = () => {
   return (
     <>
       <LoadingScreen isLoading={isLoading} />
-      <div className="flex min-h-screen">
-        {/* Sidebar */}
-        <aside className="fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
+      <div className="flex min-h-screen flex-col sm:flex-row">
+        {/* Mobile Topbar */}
+        <div className="sm:hidden flex items-center justify-between px-4 py-3 bg-white shadow z-50 sticky top-0">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+              <img
+                src="/images/profile-pic.jpg"
+                alt="Jhon Loyd Pastorin Profile Picture"
+                className="w-full h-full object-cover rounded-full"
+                draggable="false"
+              />
+            </div>
+            <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
+          </div>
+          <button
+            className="p-2 rounded-md hover:bg-gray-100 focus:outline-none"
+            onClick={() => setMobileNavOpen(true)}
+            aria-label="Open navigation menu"
+          >
+            <Menu className="w-6 h-6 text-gray-700" />
+          </button>
+        </div>
+        {/* Mobile Drawer Navigation */}
+        {mobileNavOpen && (
+          <div className="fixed inset-0 z-50 bg-black/40 flex">
+            <div className="w-72 max-w-full bg-white h-full shadow-2xl p-8 flex flex-col">
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/images/profile-pic.jpg"
+                      alt="Jhon Loyd Pastorin Profile Picture"
+                      className="w-full h-full object-cover rounded-full"
+                      draggable="false"
+                    />
+                  </div>
+                  <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
+                </div>
+                <button
+                  className="p-2 rounded-md hover:bg-gray-100 focus:outline-none"
+                  onClick={() => setMobileNavOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <span className="text-2xl">×</span>
+                </button>
+              </div>
+              <button
+                onClick={() => {
+                  setIsContactPanelOpen(true);
+                  setMobileNavOpen(false);
+                }}
+                className="w-full px-4 py-3 mb-6 bg-gray-900 text-white rounded-xl hover:scale-105 transition-transform duration-300 font-medium text-sm"
+              >
+                Get In Touch
+              </button>
+              <div className="mb-8">
+                <h2 className="text-lg font-semibold text-gray-900 mb-6">My Portfolio</h2>
+                <nav className="space-y-3">
+                  {categories.map((category) => {
+                    const categoryTheme = themes[category];
+                    const isActive = category === activeCategory;
+                    return (
+                      <button
+                        key={category}
+                        onClick={() => {
+                          setActiveCategory(category);
+                          setMobileNavOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-500 hover:scale-105 ${
+                          isActive
+                            ? "text-white transform scale-105 shadow-lg"
+                            : "text-gray-700 hover:shadow-md"
+                        }`}
+                        style={{
+                          backgroundColor: isActive
+                            ? categoryTheme.primary
+                            : "transparent",
+                          border: isActive
+                            ? "none"
+                            : `1px solid ${categoryTheme.primary}40`,
+                        }}
+                      >
+                        <div className="text-sm font-medium">{category}</div>
+                        <div
+                          className={`text-xs mt-1 ${isActive ? "text-white/80" : "text-gray-500"}`}
+                        >
+                          {categoryCounts[category]} projects
+                        </div>
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            </div>
+            <div className="flex-1" onClick={() => setMobileNavOpen(false)} />
+          </div>
+        )}
+        {/* Sidebar for desktop */}
+        <aside className="hidden sm:block fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
           <div className="p-8">
             <div className="text-center mb-4">
               <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-                {/* <User className="w-16 h-16 text-gray-400" /> */}
                 <img
-                  src={`/images/profile-pic.jpg`} // Update this path
+                  src={`/images/profile-pic.jpg`}
                   alt="Jhon Loyd Pastorin Profile Picture"
                   className="w-full h-full object-cover rounded-full"
                   draggable="false"
@@ -332,7 +429,6 @@ const Index = () => {
                 Creative Developer & Automation Specialist
               </p>
             </div>
-
             <div className="mb-4 pb-4 border-b border-gray-200">
               <button
                 onClick={() => setIsContactPanelOpen(true)}
@@ -341,18 +437,6 @@ const Index = () => {
                 Get In Touch
               </button>
             </div>
-
-            {/* <div className="mb-12">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                About Me
-              </h2>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Passionate developer with 5+ years of experience creating
-                digital solutions that blend beautiful design with robust
-                functionality.
-              </p>
-            </div> */}
-
             <div>
               <h2 className="text-lg font-semibold text-gray-900 mb-6">
                 My Work
@@ -390,33 +474,28 @@ const Index = () => {
                 })}
               </nav>
             </div>
-
-
           </div>
         </aside>
-
         {/* Main Content */}
         <main
-          className="ml-80 flex-1 min-h-screen transition-all duration-700 ease-out"
-          style={{ backgroundColor: theme.bg }}
+          className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out bg-white"
         >
-          <div className="p-8">
-            <div className="mb-8">
+          <div className="p-4 sm:p-8">
+            <div className="mb-6 sm:mb-8">
               <h1
-                className="text-4xl font-bold mb-2 transition-colors duration-500"
+                className="text-2xl sm:text-4xl font-bold mb-2 transition-colors duration-500"
                 style={{ color: theme.primary }}
               >
                 {activeCategory}
               </h1>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 {currentProjects.length} projects showcasing my expertise in{" "}
                 {activeCategory.toLowerCase()}
               </p>
             </div>
-
             {/* Tag Filter Bar - only show for All Works */}
             {activeCategory === "All Works" && (
-              <div className="flex gap-2 mb-6 flex-wrap">
+              <div className="flex gap-2 mb-6 flex-nowrap overflow-x-auto pb-2">
                 {predefinedTags.map(tag => {
                   const isSelected = selectedTags.includes(tag.value);
                   return (
@@ -431,7 +510,7 @@ const Index = () => {
                               : [...prev.filter(t => t !== "All"), tag.value] // Add tag, remove "All"
                         );
                       }}
-                      className={`px-3 py-1 rounded-full text-sm font-medium transition 
+                      className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition 
                         ${isSelected ? "ring-2 ring-offset-2 ring-gray-400 scale-105" : ""}
                       `}
                       style={{
@@ -446,8 +525,7 @@ const Index = () => {
                 })}
               </div>
             )}
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6">
               {filteredProjects.map((project, index) => (
                   <Card
                     key={project.id}
@@ -479,10 +557,10 @@ const Index = () => {
                           </Badge>
                         ))}
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2 text-sm">
+                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-2 text-xs sm:text-sm">
                         {project.description}
                       </p>
                       <div className="flex gap-2">
@@ -526,7 +604,6 @@ const Index = () => {
             </div>
           </div>
         </main>
-
         <ContactPanel
           isOpen={isContactPanelOpen}
           onClose={() => setIsContactPanelOpen(false)}
