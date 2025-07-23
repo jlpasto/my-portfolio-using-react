@@ -6,17 +6,34 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
 import ContactPanel from "@/components/ContactPanel";
 import LoadingScreen from "@/components/LoadingScreen";
-import { Link } from "react-router-dom";
 
 
 // Color themes for categories
 const themes = {
+  "All Works": { primary: "#10b981", bg: "#f0fdfa" },
   Website: { primary: "#6366f1", bg: "#f0f1ff" },
   //"Web Scraping": { primary: "#10b981", bg: "#f0fdfa" },
   "Python Automation": { primary: "#f59e0b", bg: "#fffbeb" },
   "Make.com Automation": { primary: "#ef4444", bg: "#fef2f2" }
   // "Google Apps Script": { primary: "#8b5cf6", bg: "#faf5ff" },
 };
+
+// Predefined tags for filtering
+const predefinedTags = [
+  { label: "All", value: "All", color: "#e5e7eb", text: "#374151" },
+  { label: "Node.js", value: "Node.js", color: "#d1fae5", text: "#065f46" },
+  { label: "Python", value: "Python", color: "#fef3c7", text: "#92400e" },
+  { label: "Make.com", value: "Make.com", color: "#fce7f3", text: "#be185d" },
+  { label: "API", value: "API", color: "#e0e7ff", text: "#3730a3" },
+  { label: "React", value: "React", color: "#e0f2fe", text: "#0369a1" },
+  { label: "Google Apps Script", value: "Google Apps Script", color: "#f3e8ff", text: "#6d28d9" },
+  { label: "Tailwind", value: "Tailwind", color: "#cffafe", text: "#0e7490" },
+  { label: "Javascript", value: "Javascript", color: "#fef9c3", text: "#b45309" },
+  { label: "TypeScript", value: "TypeScript", color: "#dbeafe", text: "#1e40af" },
+  { label: "Notion", value: "Notion", color: "#f3f4f6", text: "#111827" },
+  { label: "OpenAI", value: "OpenAI", color: "#f1f5f9", text: "#0f172a" },
+  { label: "Automation", value: "Automation", color: "#f3f4f6", text: "#334155" },
+];
 
 // Sample projects data
 const projectsByCategory = {
@@ -33,7 +50,7 @@ const projectsByCategory = {
         " The project is built primarily with HTML and JavaScript, offering a streamlined" +
         " solution for efficient, centralized communication.",
       image: `/images/website/omnichannel-preview.png`,
-      tags: ["Node.js", "API Integration", "Javascript"],
+      tags: ["Node.js", "API Integration", "Javascript", "Tailwind"],
       liveUrl: "https://omnichannel-communication-app.vercel.app/",
       githubUrl: "https://github.com/jlpasto/omnichannel-communication-app",
     },
@@ -112,76 +129,7 @@ const projectsByCategory = {
       liveUrl: "#",
       githubUrl: "#",
     },
-    {
-      id: 10,
-      title: "Social Media Analytics",
-      description:
-        "Data collection tool for social media platforms with sentiment analysis.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Selenium", "Pandas"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 11,
-      title: "News Aggregator",
-      description:
-        "Automated news collection system that scrapes multiple sources.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Requests", "NLP"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 12,
-      title: "Job Market Analyzer",
-      description:
-        "Employment data scraper that tracks job postings and salary trends.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Scrapy", "Data Analysis"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 13,
-      title: "Real Estate Data Collector",
-      description:
-        "Property listing scraper with price analysis and market trends.",
-      image: "/placeholder.svg",
-      tags: ["Python", "BeautifulSoup", "Geolocation"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 14,
-      title: "Academic Research Tool",
-      description:
-        "Research paper and citation scraper for academic databases.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Selenium", "PDF Parser"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 15,
-      title: "Stock Market Monitor",
-      description:
-        "Financial data scraper tracking stock prices and market indicators.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Requests", "Financial APIs"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 16,
-      title: "E-commerce Competitor Analysis",
-      description:
-        "Product and pricing intelligence tool for market positioning.",
-      image: "/placeholder.svg",
-      tags: ["Python", "Scrapy", "ML"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+   
   ],
   "Python Automation": [
     {
@@ -287,78 +235,24 @@ const projectsByCategory = {
       liveUrl: "#",
       githubUrl: "#",
     },
-    {
-      id: 34,
-      title: "Meeting Scheduler",
-      description:
-        "Smart meeting scheduling tool with Google Calendar integration.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "Calendar API", "Gmail"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 35,
-      title: "Data Sync Tool",
-      description:
-        "Bidirectional data synchronization between Google Sheets and databases.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "API Integration", "Data Sync"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 36,
-      title: "Expense Tracking System",
-      description:
-        "Automated expense tracking with receipt processing and categorization.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "OCR", "Budget Management"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 37,
-      title: "Project Management Dashboard",
-      description:
-        "Comprehensive project tracking with Gantt charts and reporting.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "Project Management", "Charts"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 38,
-      title: "HR Management System",
-      description:
-        "Employee management with leave tracking and performance reviews.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "HR", "Forms"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 39,
-      title: "Inventory Management Tool",
-      description:
-        "Stock tracking system with barcode scanning and reorder alerts.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "Inventory", "Barcode"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      id: 40,
-      title: "Customer Feedback Analyzer",
-      description:
-        "Automated feedback collection and analysis with sentiment scoring.",
-      image: "/placeholder.svg",
-      tags: ["Google Apps Script", "Sentiment Analysis", "Forms"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
   ],
 };
+
+// Shuffle function
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Generate 'All Works' array
+const allProjects = Object.entries(projectsByCategory)
+  .filter(([category]) => category !== "All Works")
+  .flatMap(([, projects]) => projects);
+projectsByCategory["All Works"] = allProjects;
 
 const categoryCounts = Object.fromEntries(
   Object.entries(projectsByCategory).map(([category, projects]) => [
@@ -376,6 +270,11 @@ const Index = () => {
     return sessionStorage.getItem("hasLoaded") !== "true";
   });
 
+  // State for shuffled 'All Works'
+  const [shuffledAllWorks, setShuffledAllWorks] = useState(() => shuffleArray(projectsByCategory["All Works"]));
+  // Multi-select tag filter state
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false),
@@ -384,9 +283,30 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, [isLoading]);
 
+  useEffect(() => {
+    if (activeCategory === "All Works") {
+      setShuffledAllWorks(shuffleArray(projectsByCategory["All Works"]));
+    }
+  }, [activeCategory]);
+
+  // Reset tag filter on category change
+  useEffect(() => {
+    setSelectedTags([]);
+  }, [activeCategory]);
+
   const categories = Object.keys(themes) as Array<keyof typeof themes>;
-  const currentProjects = projectsByCategory[activeCategory];
   const theme = themes[activeCategory];
+  const currentProjects = activeCategory === "All Works"
+    ? shuffledAllWorks
+    : projectsByCategory[activeCategory];
+
+  // Filter projects by selected tags (OR logic)
+  const filteredProjects =
+    activeCategory === "All Works" && selectedTags.length > 0
+      ? currentProjects.filter(project =>
+          (project.tags || []).some(tag => selectedTags.includes(tag))
+        )
+      : currentProjects;
 
   return (
     <>
@@ -494,8 +414,41 @@ const Index = () => {
               </p>
             </div>
 
+            {/* Tag Filter Bar - only show for All Works */}
+            {activeCategory === "All Works" && (
+              <div className="flex gap-2 mb-6 flex-wrap">
+                {predefinedTags.map(tag => {
+                  const isSelected = selectedTags.includes(tag.value);
+                  return (
+                    <button
+                      key={tag.value}
+                      onClick={() => {
+                        setSelectedTags(prev =>
+                          tag.value === "All"
+                            ? [] // Clear all selections if "All" is clicked
+                            : prev.includes(tag.value)
+                              ? prev.filter(t => t !== tag.value) // Remove tag
+                              : [...prev.filter(t => t !== "All"), tag.value] // Add tag, remove "All"
+                        );
+                      }}
+                      className={`px-3 py-1 rounded-full text-sm font-medium transition 
+                        ${isSelected ? "ring-2 ring-offset-2 ring-gray-400 scale-105" : ""}
+                      `}
+                      style={{
+                        backgroundColor: tag.color,
+                        color: tag.text,
+                        border: isSelected ? `2px solid ${tag.text}` : "none"
+                      }}
+                    >
+                      {tag.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-              {currentProjects.map((project, index) => (
+              {filteredProjects.map((project, index) => (
                   <Card
                     key={project.id}
                     className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-white animate-fade-in"

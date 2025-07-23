@@ -1,2 +1,3 @@
 Add loading screen in work details page
-Publish in vercel
+Mobile responsive
+Add All works section with filters (tags at the top with different colors)
