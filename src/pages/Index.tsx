@@ -145,12 +145,22 @@ const Index = () => {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
-                    <img
-                      src="/images/profile-pic.jpg"
-                      alt="Jhon Loyd Pastorin Profile Picture"
-                      className="w-full h-full object-cover rounded-full"
-                      draggable="false"
-                    />
+                    <button
+                      onClick={() => {
+                        navigate("/about");
+                        setMobileNavOpen(false);
+                      }}
+                      className={`w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none transition
+                        ${location.pathname === "/" || location.pathname === "/about" ? "ring-2 ring-offset-2 ring-gray-400 border-2 border-gray-700" : ""}`}
+                      aria-label="Go to About Me"
+                    >
+                      <img
+                        src="/images/profile-pic.jpg"
+                        alt="Jhon Loyd Pastorin Profile Picture"
+                        className="w-full h-full object-cover rounded-full"
+                        draggable="false"
+                      />
+                    </button>
                   </div>
                   <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
                 </div>

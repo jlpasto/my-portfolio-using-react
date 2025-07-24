@@ -56,12 +56,19 @@ const About = () => {
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/images/profile-pic.jpg"
-                    alt="Jhon Loyd Pastorin Profile Picture"
-                    className="w-full h-full object-cover rounded-full"
-                    draggable="false"
-                  />
+                  <button
+                    onClick={() => { navigate("/about"); setMobileNavOpen(false); }}
+                    className={`w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none transition
+                      ${window.location.pathname === "/about" ? "ring-2 ring-offset-2 ring-gray-400 border-2 border-gray-700" : ""}`}
+                    aria-label="Go to About Me"
+                  >
+                    <img
+                      src="/images/profile-pic.jpg"
+                      alt="Jhon Loyd Pastorin Profile Picture"
+                      className="w-full h-full object-cover rounded-full"
+                      draggable="false"
+                    />
+                  </button>
                 </div>
                 <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
               </div>
@@ -85,26 +92,37 @@ const About = () => {
             <div className="mb-8">
               <h2 className="text-lg font-semibold text-gray-900 mb-6">Navigation</h2>
               <nav className="space-y-3">
-                <button
-                  onClick={() => { navigate("/website"); setMobileNavOpen(false); }}
-                  className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-                >Website</button>
-                <button
-                  onClick={() => { navigate("/make"); setMobileNavOpen(false); }}
-                  className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-                >Make.com Automation</button>
-                <button
-                  onClick={() => { navigate("/python"); setMobileNavOpen(false); }}
-                  className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-                >Python Automation</button>
-                <button
-                  onClick={() => { navigate("/all"); setMobileNavOpen(false); }}
-                  className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-                >All Works</button>
-                <button
-                  onClick={() => { navigate("/about"); setMobileNavOpen(false); }}
-                  className="w-full text-left px-4 py-3 rounded-xl text-gray-900 font-bold bg-gray-100"
-                >About Me</button>
+                {/* Dynamically render navigation like the rest of the app */}
+                {categories.map((category) => {
+                  let path = "/";
+                  if (category === "Website") path = "/website";
+                  else if (category === "Make.com Automation") path = "/make";
+                  else if (category === "Python Automation") path = "/python";
+                  else if (category === "All Works") path = "/all";
+                  // If About Me is not in categories, add About Me button below
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => { navigate(path); setMobileNavOpen(false); }}
+                      className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-500 ${
+                        path === "/about"
+                          ? "text-gray-900 font-bold bg-gray-100"
+                          : "text-gray-700 hover:shadow-md"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
+                {/* If About Me is not in categories, show About Me button */}
+                {!categories.includes("About Me") && (
+                  <button
+                    onClick={() => { navigate("/about"); setMobileNavOpen(false); }}
+                    className="w-full text-left px-4 py-3 rounded-xl text-gray-900 font-bold bg-gray-100"
+                  >
+                    About Me
+                  </button>
+                )}
               </nav>
             </div>
           </div>
