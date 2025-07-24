@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import WorkDetail from "./pages/WorkDetail";
 import WorkDetailTest from "./pages/WorkDetailTest";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/make" element={<Index />} />
           <Route path="/python" element={<Index />} />
           <Route path="/all" element={<Index />} />
+          <Route path="/about" element={<About />} />
           {/* <Route path="/work/:id" element={<WorkDetail />} /> */}
           <Route path="/work/:slug" element={<WorkDetail />} />
           <Route path="/test/:slug" element={<WorkDetailTest />} />

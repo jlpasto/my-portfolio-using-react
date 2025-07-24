@@ -8,6 +8,7 @@ import ContactPanel from "@/components/ContactPanel";
 import LoadingScreen from "@/components/LoadingScreen";
 import { Menu } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 // Color themes for categories
@@ -346,14 +347,18 @@ const Index = () => {
         {/* Mobile Topbar */}
         <div className="sm:hidden flex items-center justify-between px-4 py-3 bg-white shadow z-50 sticky top-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+            <button
+              onClick={() => navigate("/about")}
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none"
+              aria-label="Go to About Me"
+            >
               <img
                 src="/images/profile-pic.jpg"
                 alt="Jhon Loyd Pastorin Profile Picture"
                 className="w-full h-full object-cover rounded-full"
                 draggable="false"
               />
-            </div>
+            </button>
             <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
           </div>
           <button
@@ -444,14 +449,18 @@ const Index = () => {
         <aside className="hidden sm:block fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
           <div className="p-8">
             <div className="text-center mb-4">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
+              <button
+                onClick={() => navigate("/about")}
+                className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none"
+                aria-label="Go to About Me"
+              >
                 <img
                   src={`/images/profile-pic.jpg`}
                   alt="Jhon Loyd Pastorin Profile Picture"
                   className="w-full h-full object-cover rounded-full"
                   draggable="false"
                 />
-              </div>
+              </button>
               <h1 className="text-2xl font-bold text-gray-900 mb-2">
                 Jhon Loyd Pastorin
               </h1>
