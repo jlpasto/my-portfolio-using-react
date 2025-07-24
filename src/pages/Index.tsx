@@ -288,6 +288,7 @@ const Index = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [isFastLoading, setIsFastLoading] = useState(false);
 
   // State for shuffled 'All Works'
   const [shuffledAllWorks, setShuffledAllWorks] = useState(() => shuffleArray(projectsByCategory["All Works"]));
@@ -336,6 +337,11 @@ const Index = () => {
   return (
     <>
       <LoadingScreen isLoading={isLoading} />
+      {isFastLoading && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/80">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary border-solid"></div>
+        </div>
+      )}
       <div className="flex min-h-screen flex-col sm:flex-row">
         {/* Mobile Topbar */}
         <div className="sm:hidden flex items-center justify-between px-4 py-3 bg-white shadow z-50 sticky top-0">
@@ -559,7 +565,17 @@ const Index = () => {
                     className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-white animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <a href={`/work/${project.slug}`} target="_blank" rel="noopener noreferrer">
+                    <button
+                      type="button"
+                      className="w-full text-left p-0 m-0 bg-transparent border-none outline-none"
+                      onClick={() => {
+                        setIsFastLoading(true);
+                        setTimeout(() => {
+                          navigate(`/work/${project.slug}`);
+                        }, 100);
+                      }}
+                      style={{ all: "unset", cursor: "pointer", display: "block" }}
+                    >
                       <div className="aspect-video relative overflow-hidden bg-gray-100">
                         <img
                           src={project.image}
@@ -571,7 +587,7 @@ const Index = () => {
                           style={{ backgroundColor: theme.primary }}
                         />
                       </div>
-                    </a>
+                    </button>
                     <CardContent className="p-4">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {project.tags.slice(0, 3).map((tag) => (
