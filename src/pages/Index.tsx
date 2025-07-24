@@ -7,6 +7,7 @@ import { ExternalLink, Github } from "lucide-react";
 import ContactPanel from "@/components/ContactPanel";
 import LoadingScreen from "@/components/LoadingScreen";
 import { Menu } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 // Color themes for categories
@@ -262,6 +263,20 @@ const categoryCounts = Object.fromEntries(
   ])
 );
 
+const pathToCategory = {
+  "/website": "Website",
+  "/make": "Make.com Automation",
+  "/python": "Python Automation",
+  "/all": "All Works",
+  "/": "All Works",
+};
+const categoryToPath = {
+  "Website": "/website",
+  "Make.com Automation": "/make",
+  "Python Automation": "/python",
+  "All Works": "/all",
+};
+
 const Index = () => {
   const [activeCategory, setActiveCategory] =
     useState<keyof typeof themes>("Website");
@@ -271,6 +286,8 @@ const Index = () => {
     return sessionStorage.getItem("hasLoaded") !== "true";
   });
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // State for shuffled 'All Works'
   const [shuffledAllWorks, setShuffledAllWorks] = useState(() => shuffleArray(projectsByCategory["All Works"]));
@@ -284,6 +301,12 @@ const Index = () => {
     }, 2000);
     return () => clearTimeout(timer);
   }, [isLoading]);
+
+  useEffect(() => {
+    // On mount or path change, set category from path
+    const category = pathToCategory[location.pathname] || "Website";
+    setActiveCategory(category);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (activeCategory === "All Works") {
@@ -379,6 +402,7 @@ const Index = () => {
                         key={category}
                         onClick={() => {
                           setActiveCategory(category);
+                          navigate(categoryToPath[category] || "/");
                           setMobileNavOpen(false);
                         }}
                         className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-500 hover:scale-105 ${
@@ -448,7 +472,10 @@ const Index = () => {
                   return (
                     <button
                       key={category}
-                      onClick={() => setActiveCategory(category)}
+                      onClick={() => {
+                        setActiveCategory(category);
+                        navigate(categoryToPath[category] || "/");
+                      }}
                       className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-500 hover:scale-105 ${
                         isActive
                           ? "text-white transform scale-105 shadow-lg"
