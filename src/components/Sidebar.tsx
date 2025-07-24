@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface SidebarProps {
   activeCategory: string;
@@ -21,14 +21,16 @@ const Sidebar: React.FC<SidebarProps> = ({
   onContactClick,
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   return (
-    <aside className="hidden sm:block fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
+    <aside className="hidden sm:block fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto overflow-x-hidden">
       <div className="p-8">
         <div className="text-center mb-4">
           <button
             onClick={() => navigate("/about")}
-            className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none"
-            aria-label="Go to About Me"
+            className={`w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none transition
+              ${(location.pathname === "/about" || location.pathname === "/") ? "ring-2 ring-offset-2 ring-gray-400 border-2 border-gray-700" : ""}`}
+            aria-label="Go to About Me" 
           >
             <img
               src={`/images/profile-pic.jpg`}

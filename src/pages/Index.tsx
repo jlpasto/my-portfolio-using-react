@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Sidebar from "@/components/Sidebar";
 import { themes, projectsByCategory, categoryCounts, categories } from "@/data/categories";
+import About from "@/pages/About";
 
 
 // Predefined tags for filtering
@@ -34,8 +35,7 @@ const pathToCategory = {
   "/website": "Website",
   "/make": "Make.com Automation",
   "/python": "Python Automation",
-  "/all": "All Works",
-  "/": "All Works",
+  "/all": "All Works"
 };
 const categoryToPath = {
   "Website": "/website",
@@ -108,13 +108,17 @@ const Index = () => {
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary border-solid"></div>
         </div>
       )}
+      {location.pathname === "/" ? (
+        <About />
+      ) : (
       <div className="flex min-h-screen flex-col sm:flex-row">
         {/* Mobile Topbar */}
         <div className="sm:hidden flex items-center justify-between px-4 py-3 bg-white shadow z-50 sticky top-0">
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate("/about")}
-              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none"
+              className={`w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none transition
+                ${location.pathname === "/" || location.pathname === "/about" ? "ring-2 ring-offset-2 ring-gray-400 border-2 border-gray-700" : ""}`}
               aria-label="Go to About Me"
             >
               <img
@@ -362,6 +366,7 @@ const Index = () => {
           onClose={() => setIsContactPanelOpen(false)}
         />
       </div>
+      )}
     </>
   );
 };
