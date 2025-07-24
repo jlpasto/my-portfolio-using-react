@@ -528,7 +528,7 @@ const Index = () => {
             </div>
             {/* Tag Filter Bar - only show for All Works */}
             {activeCategory === "All Works" && (
-              <div className="flex gap-2 mb-6 flex-nowrap overflow-x-auto pb-2">
+              <div className="flex gap-2 mb-6 flex-nowrap overflow-x-auto p-2">
                 {predefinedTags.map(tag => {
                   const isSelected = selectedTags.includes(tag.value);
                   return (
