@@ -1,4 +1,4 @@
-import { useParams, Link} from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,17 @@ import "highlight.js/styles/github.css"; // Optional: GitHub-like code block sty
 function WorkDetail() {
   
   const { slug } = useParams();
+  const location = useLocation();
+  const fromCategory = location.state?.fromCategory;
+
+  // Map category to path
+  const categoryToPath = {
+    "Website": "/website",
+    "Make.com Automation": "/make",
+    "Python Automation": "/python",
+    "All Works": "/all",
+  };
+  const backTo = categoryToPath[fromCategory] || "/";
   const [content, setContent] = useState<string>("");
 
   // for contact 
@@ -35,7 +46,7 @@ function WorkDetail() {
       <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-6" style={{ maxWidth: "95ch", marginTop: "3rem"}}>
       {/* Back Button */}
       <Link
-        to="/"
+        to={backTo}
         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8"
       >
         <ArrowLeft className="w-4 h-4 mr-2" />

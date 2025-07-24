@@ -571,7 +571,7 @@ const Index = () => {
                       onClick={() => {
                         setIsFastLoading(true);
                         setTimeout(() => {
-                          navigate(`/work/${project.slug}`);
+                          navigate(`/work/${project.slug}`, { state: { fromCategory: activeCategory } });
                         }, 100);
                       }}
                       style={{ all: "unset", cursor: "pointer", display: "block" }}
