@@ -7,6 +7,8 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Sidebar from "@/components/Sidebar";
+import { themes, categoryCounts, categories } from "@/data/categories";
 
 const About = () => {
   const [content, setContent] = useState<string>("");
@@ -25,14 +27,18 @@ const About = () => {
       {/* Mobile Topbar */}
       <div className="sm:hidden flex items-center justify-between px-4 py-3 bg-white shadow z-50 sticky top-0">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+          <button
+            onClick={() => navigate("/about")}
+            className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden p-0 border-0 focus:outline-none"
+            aria-label="Go to About Me"
+          >
             <img
               src="/images/profile-pic.jpg"
               alt="Jhon Loyd Pastorin Profile Picture"
               className="w-full h-full object-cover rounded-full"
               draggable="false"
             />
-          </div>
+          </button>
           <span className="font-bold text-lg text-gray-900">Jhon Loyd Pastorin</span>
         </div>
         <button
@@ -106,61 +112,15 @@ const About = () => {
         </div>
       )}
       {/* Sidebar for desktop */}
-      <aside className="hidden sm:block fixed left-0 top-0 h-full w-80 bg-white shadow-2xl z-40 overflow-y-auto">
-        <div className="p-8">
-          <div className="text-center mb-4">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-100 flex items-center justify-center">
-              <img
-                src={`/images/profile-pic.jpg`}
-                alt="Jhon Loyd Pastorin Profile Picture"
-                className="w-full h-full object-cover rounded-full"
-                draggable="false"
-              />
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Jhon Loyd Pastorin
-            </h1>
-            <p className="text-gray-600 text-sm">
-              Creative Developer & Automation Specialist
-            </p>
-          </div>
-          <div className="mb-4 pb-4 border-b border-gray-200">
-            <button
-              onClick={() => setIsContactPanelOpen(true)}
-              className="w-full px-4 py-3 bg-gray-900 text-white rounded-xl hover:scale-105 transition-transform duration-300 font-medium text-sm"
-            >
-              Get In Touch
-            </button>
-          </div>
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-6">
-              Navigation
-            </h2>
-            <nav className="space-y-3">
-              <button
-                onClick={() => navigate("/website")}
-                className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-              >Website</button>
-              <button
-                onClick={() => navigate("/make")}
-                className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-              >Make.com Automation</button>
-              <button
-                onClick={() => navigate("/python")}
-                className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-              >Python Automation</button>
-              <button
-                onClick={() => navigate("/all")}
-                className="w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:shadow-md transition-all duration-500"
-              >All Works</button>
-              <button
-                onClick={() => navigate("/about")}
-                className="w-full text-left px-4 py-3 rounded-xl text-gray-900 font-bold bg-gray-100"
-              >About Me</button>
-            </nav>
-          </div>
-        </div>
-      </aside>
+      <Sidebar
+        activeCategory={""}
+        setActiveCategory={() => {}}
+        categoryCounts={categoryCounts}
+        themes={themes}
+        categories={categories}
+        highlightAbout={true}
+        onContactClick={() => setIsContactPanelOpen(true)}
+      />
       {/* Main Content */}
       <main className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out bg-white">
         <div className="p-4 sm:p-8">
