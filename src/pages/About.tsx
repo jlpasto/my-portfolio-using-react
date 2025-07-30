@@ -17,8 +17,9 @@ const About = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    import("../content/About-Me.md?raw")
-      .then((module) => setContent(module.default))
+    fetch("https://raw.githubusercontent.com/jlpasto/jlpasto/main/README.md")
+      .then((res) => res.text())
+      .then((data) => setContent(data))
       .catch(() => setContent("# Not Found\nREADME.md not found."));
   }, []);
 
@@ -166,3 +167,4 @@ const About = () => {
 };
 
 export default About; 
+//https://raw.githubusercontent.com/jlpasto/jlpasto/main/README.md

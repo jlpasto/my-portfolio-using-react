@@ -1,3 +1,4 @@
-Add loading screen in work details page
-Mobile responsive
-Add All works section with filters (tags at the top with different colors)
+- Add aria label when hovered in my image saying "About Me"
+- Website is highlighted when I refresh page before it go to All works 
+- Add certifications (link, images) 
+- Shuffle effect on All works not working 
