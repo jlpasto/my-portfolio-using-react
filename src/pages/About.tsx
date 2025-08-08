@@ -141,7 +141,10 @@ const About = () => {
         onContactClick={() => setIsContactPanelOpen(true)}
       />
       {/* Main Content */}
-      <main className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out bg-white">
+      <main 
+        className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out"
+        style={{ backgroundColor: "#f8fafc" }}
+      >
         <div className="p-4 sm:p-8 mt-4">
           <div className="prose prose-sm sm:prose mx-auto p-6" style={{ maxWidth: "95ch" }}>
             <ReactMarkdown

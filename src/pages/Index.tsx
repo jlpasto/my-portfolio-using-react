@@ -235,7 +235,8 @@ const Index = () => {
         />
         {/* Main Content */}
         <main
-          className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out bg-white"
+          className="sm:ml-80 flex-1 min-h-screen transition-all duration-700 ease-out"
+          style={{ backgroundColor: theme.bg }}
         >
           <div className="p-4 sm:p-8">
             <div className="mb-6 sm:mb-8">
