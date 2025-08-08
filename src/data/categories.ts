@@ -2,7 +2,7 @@ export const themes = {
   "All Works": { primary: "#10b981", bg: "#f0fdfa" },
   "Website": { primary: "#6366f1", bg: "#f0f1ff" },
   "Python Automation": { primary: "#f59e0b", bg: "#fffbeb" },
-  "Make.com Automation": { primary: "#ef4444", bg: "#fef2f2" },
+  "Make and N8N Automation": { primary: "#ef4444", bg: "#fef2f2" },
   //"Google Apps Script": { primary: "#8b5cf6", bg: "#f5f3ff" }
 };
 
@@ -160,7 +160,7 @@ export const projectsByCategory = {
       }
   
     ],
-    "Make.com Automation": [
+    "Make and N8N Automation": [
 
       {
         id: 30,

@@ -33,13 +33,13 @@ const predefinedTags = [
 
 const pathToCategory = {
   "/website": "Website",
-  "/make": "Make.com Automation",
+  "/make-n8n": "Make and N8N Automation",
   "/python": "Python Automation",
   "/all": "All Works"
 };
 const categoryToPath = {
   "Website": "/website",
-  "Make.com Automation": "/make",
+  "Make and N8N Automation": "/make-n8n",
   "Python Automation": "/python",
   "All Works": "/all"
 };

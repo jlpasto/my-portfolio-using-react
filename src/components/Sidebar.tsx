@@ -70,8 +70,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                     navigate(
                       category === "Website"
                         ? "/website"
-                        : category === "Make.com Automation"
-                        ? "/make"
+                        : category === "Make and N8N Automation"
+                        ? "/make-n8n"
                         : category === "Python Automation"
                         ? "/python"
                         : category === "All Works"

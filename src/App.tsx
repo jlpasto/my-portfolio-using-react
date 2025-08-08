@@ -20,7 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/website" element={<Index />} />
-          <Route path="/make" element={<Index />} />
+          <Route path="/make-n8n" element={<Index />} />
           <Route path="/python" element={<Index />} />
           <Route path="/all" element={<Index />} />
           <Route path="/about" element={<About />} />

@@ -97,7 +97,7 @@ const About = () => {
                 {categories.map((category) => {
                   let path = "/";
                   if (category === "Website") path = "/website";
-                  else if (category === "Make.com Automation") path = "/make";
+                  else if (category === "Make and N8N Automation") path = "/make-n8n";
                   else if (category === "Python Automation") path = "/python";
                   else if (category === "All Works") path = "/all";
                   // If About Me is not in categories, add About Me button below

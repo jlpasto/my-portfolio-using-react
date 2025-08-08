@@ -17,7 +17,7 @@ function WorkDetail() {
   // Map category to path
   const categoryToPath = {
     "Website": "/website",
-    "Make.com Automation": "/make",
+    "Make and N8N Automation": "/make-n8n",
     "Python Automation": "/python",
     "All Works": "/all",
   };
