@@ -46,7 +46,7 @@ const categoryToPath = {
 
 const Index = () => {
   const [activeCategory, setActiveCategory] =
-    useState<keyof typeof themes>("Website");
+    useState<keyof typeof themes>("All Works");
   const [isContactPanelOpen, setIsContactPanelOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(() => {
     // Only show loading screen the first time
@@ -72,7 +72,7 @@ const Index = () => {
 
   useEffect(() => {
     // On mount or path change, set category from path
-    const category = pathToCategory[location.pathname] || "Website";
+    const category = pathToCategory[location.pathname] || "All Works";
     setActiveCategory(category);
   }, [location.pathname]);
 

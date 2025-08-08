@@ -161,6 +161,18 @@ export const projectsByCategory = {
   
     ],
     "Make.com Automation": [
+
+      {
+        id: 30,
+        title: "HR Hiring Automation",
+        slug: "HR-Hiring-Automation",
+        description:
+          "Automates the entire hiring process by detecting candidate status via Gmail labels, using AI agents to generate communication, and leveraging HTTP API calls to send emails, create Google Calendar events, log data to Google Sheets, and post updates to Discord.",
+        image: `/images/make/hr-hiring-automation.png`,
+        tags: ["N8N", "HTTP Request", "AI Agent"],
+        liveUrl: "/work/HR-Hiring-Automation",
+        githubUrl: "null",
+      },
       {
         id: 26,
         title: "Social Media Automation",
