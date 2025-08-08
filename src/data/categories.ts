@@ -171,7 +171,7 @@ export const projectsByCategory = {
         image: `/images/make/hr-hiring-automation.png`,
         tags: ["N8N", "HTTP Request", "AI Agent"],
         liveUrl: "/work/HR-Hiring-Automation",
-        githubUrl: "null",
+        githubUrl: null,
       },
       {
         id: 26,
