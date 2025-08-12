@@ -170,4 +170,3 @@ const About = () => {
 };
 
 export default About; 
-//https://raw.githubusercontent.com/jlpasto/jlpasto/main/README.md

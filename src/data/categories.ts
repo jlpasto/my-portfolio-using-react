@@ -174,6 +174,17 @@ export const projectsByCategory = {
         githubUrl: null,
       },
       {
+        id: 31,
+        title: "AI-Powered Customer Feedback Analysis System",
+        slug: "AI-Powered-Customer-Feedback-Analysis-System",
+        description:
+          "This n8n workflow automates the process of collecting, analyzing, and routing customer feedback. It's designed to streamline a company's response to customer inquiries by using AI to instantly classify feedback, ensuring the right department receives the right information quickly.",
+        image: `/images/make/AI-Powered-Customer-Feedback-Analysis-System.png`,
+        tags: ["N8N", "OpenAI", "Supabase"],
+        liveUrl: "/work/AI-Powered-Customer-Feedback-Analysis-System",
+        githubUrl: null,
+      },
+      {
         id: 26,
         title: "Social Media Automation",
         slug: "Social-Media-Automation",
