@@ -11,7 +11,7 @@ The result is a **fully automated, scalable, and low-maintenance hiring pipeline
 ## 📖 Case Study
 
 **Company:** Flow Pilot  
-**Role:** Automations Specialist (Assessment Project)  
+**Role:** Automations Specialist
 **Scenario:**  
 Flow Pilot’s HR department wanted to streamline the hiring process by fully automating candidate communication, scheduling, logging, and internal updates.  
 Instead of manually managing emails, calendar invites, and logging candidate status, the goal was to **use AI and HTTP API calls** to create a single workflow that could handle all three major recruitment statuses:
