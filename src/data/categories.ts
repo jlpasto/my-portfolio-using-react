@@ -157,8 +157,18 @@ export const projectsByCategory = {
         tags: ["Python", "Selenium", "BeautifulSoup"],
         liveUrl: "/work/Auction-Listings-Scraper",  
         githubUrl: "https://github.com/jlpasto/Bstock-Scraper.git",
+      },
+      {
+        id: 22,
+        title: "Wordpress Product Import Automation",
+        slug: "Wordpress-Product-Import-Automation",
+        description:
+        "A Python-based automation tool that streamlines product data import and color management for Wordpress, enabling Sarl Floor and Design to efficiently configure and update their e-commerce catalog with ease.",
+        image: `/images/python/Wordpress-Product-Import-Automation.png`,
+        tags: ["Python", "Wordpress", "Image Processing"],
+        liveUrl: "/work/Wordpress-Product-Import-Automation",  
+        githubUrl: "https://github.com/jlpasto/Wordpress-Product-Configurator.git",
       }
-  
     ],
     "Make and N8N Automation": [
 
